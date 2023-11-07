@@ -33,16 +33,43 @@ function moduleProject1() {
         }
         
   // 👉 TASK 3 - Build a "Corporate Speak" widget
-          
-
-
-
+          // console.log(adverbs, nouns, verbs)
+          const corpSpeakDiv = document.createElement('p');
+          document.querySelector('.corporatespeak').appendChild(corpSpeakDiv);
+          //adverb
+          const randomNumberAdverb = Math.floor(Math.random() * adverbs.length);
+          const randomAdverb = adverbs[randomNumberAdverb];
+          //verb 
+          const randomNumberVerb = Math.floor(Math.random() * verbs.length);
+          const randomVerb = verbs[randomNumberVerb];
+          //noun 
+          const randomNumberNoun = Math.floor(Math.random() * nouns.length)
+          const randomNoun = nouns[randomNumberNoun]
+          corpSpeakDiv.innerText = `We need to ${randomVerb} our ${randomNoun} ${randomAdverb} in order to ${randomVerb} our ${randomNoun} ${randomAdverb}.`; 
 
   // 👉 TASK 4 - Build a "Countdown" widget
-          
+          const countdownDiv = document.createElement('p')
+          document.querySelector('.countdown').appendChild(countdownDiv)
+          let counter = 5;
+          setInterval(count, 1000)
+          function count() {
+            countdownDiv.innerText = `T-minus ${counter}...`
+            counter--
+            if (counter < 0){
+              countdownDiv.innerText = 'Liftoff! 🚀'
+            }
+          }
 
   // 👉 TASK 5 - Build a "Friends" widget
-          
+          const friendsDiv = document.createElement('p')
+          document.querySelector('.friends').appendChild(friendsDiv)
+          const randomPersonGenny = Math.floor(Math.random() * people.length);
+          const randomPerson = people[randomPersonGenny];
+          console.log(people)
+          friendsDiv.innerText = ` ${randomPerson.fname} ${randomPerson.lName} was born in ${randomPerson.dateOfBirth} and is friends with `
+
+
+
   // 👉 TASK 6 - Make it so user can tab through the widgets
         qotdWidget.setAttribute('tabindex', '0');
         corpSpeakWidget.setAttribute('tabindex', '0');
