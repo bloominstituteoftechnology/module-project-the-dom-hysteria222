@@ -6,22 +6,52 @@ function moduleProject1() {
   // 👇 WORK WORK BELOW THIS LINE 👇
 
   // 👉 TASK 1 - Add a "widget" class name to widgets so CSS kicks in
-  //  ✨ add your code here
-
+          const qotdWidget = document.querySelector('.quoteoftheday');
+          qotdWidget.classList.add('widget');
+          const corpSpeakWidget = document.querySelector('.corporatespeak');
+          corpSpeakWidget.classList.add('widget');
+          const countdownWidget = document.querySelector('.countdown');
+          countdownWidget.classList.add('widget');
+          const friendsWidget = document.querySelector('.friends');
+          friendsWidget.classList.add('widget');
+  
   // 👉 TASK 2 - Build a "Quote of the Day" widget
-  //  ✨ add your code here
-
+        const randomIndex = Math.floor(Math.random() * quotes.length)
+        // console.log(randomIndex)
+        const randomQuote = quotes[randomIndex]
+        // console.log(randomQuote)
+        const qotdDiv = document.createElement('div');
+        const authorDiv = document.createElement('div');
+        document.querySelector('.quoteoftheday').appendChild(qotdDiv);
+        document.querySelector('.quoteoftheday').appendChild(authorDiv);
+        qotdDiv.innerText = randomQuote['quote'];
+        if (randomQuote.date === null){
+          authorDiv.innerText = `${randomQuote['author']} in an unkown date`;
+        }
+        else {
+        authorDiv.innerText = `${randomQuote['author']} in ${randomQuote['date']}`;
+        }
+        
   // 👉 TASK 3 - Build a "Corporate Speak" widget
-  //  ✨ add your code here
+          
+
+
+
 
   // 👉 TASK 4 - Build a "Countdown" widget
-  //  ✨ add your code here
+          
 
   // 👉 TASK 5 - Build a "Friends" widget
-  //  ✨ add your code here
-
+          
   // 👉 TASK 6 - Make it so user can tab through the widgets
-  //  ✨ add your code here
+        qotdWidget.setAttribute('tabindex', '0');
+        corpSpeakWidget.setAttribute('tabindex', '0');
+        countdownWidget.setAttribute('tabindex', '0');
+        friendsWidget.setAttribute('tabindex', '0');
+
+
+
+
 
   // 👆 WORK WORK ABOVE THIS LINE 👆
 }
