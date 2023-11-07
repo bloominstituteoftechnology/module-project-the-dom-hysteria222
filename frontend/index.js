@@ -26,7 +26,7 @@ function moduleProject1() {
         document.querySelector('.quoteoftheday').appendChild(authorDiv);
         qotdDiv.innerText = randomQuote['quote'];
         if (randomQuote.date === null){
-          authorDiv.innerText = `${randomQuote['author']} in an unkown date`;
+          authorDiv.innerText = `${randomQuote['author']} in an unknown date`;
         }
         else {
         authorDiv.innerText = `${randomQuote['author']} in ${randomQuote['date']}`;
@@ -50,13 +50,14 @@ function moduleProject1() {
   // 👉 TASK 4 - Build a "Countdown" widget
           const countdownDiv = document.createElement('p')
           document.querySelector('.countdown').appendChild(countdownDiv)
-          let counter = 5;
-          setInterval(count, 1000)
+          let counter = 4;
+          countdownDiv.innerText = 'T-minus 5...';
+          setInterval(count, 1000);
           function count() {
-            countdownDiv.innerText = `T-minus ${counter}...`
+            countdownDiv.innerText = `T-minus ${counter}...`;
             counter--
             if (counter < 0){
-              countdownDiv.innerText = 'Liftoff! 🚀'
+              countdownDiv.innerText = 'Liftoff! 🚀';
             }
           }
 
