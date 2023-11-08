@@ -66,11 +66,25 @@ function moduleProject1() {
           document.querySelector('.friends').appendChild(friendsDiv)
           const randomPersonGenny = Math.floor(Math.random() * people.length);
           const randomPerson = people[randomPersonGenny];
-          const i = 0; 
-          const friends = people[i].friends
+          const year = randomPerson.dateOfBirth.split('', 4).join('');
           
-          console.log(people, friends)
-          friendsDiv.textContent = ` ${randomPerson.fname} ${randomPerson.lName} was born in ${randomPerson.dateOfBirth} and is friends with ${friends}`
+          
+          const friendsArray = randomPerson.friends.map((i) => {
+             for (let i = 0; i < people.length; i++){
+              if (randomPerson.friends[i] === people.id){
+                const name = randomPerson.friends.map((i) =>{
+                  if (randomPerson.friends[i] === people.id){
+                    return people.fname
+                  }
+                })
+                return name
+              }
+             }
+          });
+
+        
+        console.log(people, randomPerson, friendsArray)
+          friendsDiv.textContent = ` ${randomPerson.fname} ${randomPerson.lname} was born in ${year} and is friends with ${friendsArray}`
 
 
 
