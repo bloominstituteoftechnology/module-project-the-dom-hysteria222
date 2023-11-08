@@ -67,32 +67,34 @@ function moduleProject1() {
           const randomPersonGenny = Math.floor(Math.random() * people.length);
           const randomPerson = people[randomPersonGenny];
           const year = randomPerson.dateOfBirth.split('', 4).join('');
-          
-          
-          const friendsArray = randomPerson.friends.map((i) => {
-             for (let i = 0; i < people.length; i++){
-              if (randomPerson.friends[i] === people.id){
-                const name = randomPerson.friends.map((i) =>{
-                  if (randomPerson.friends[i] === people.id){
-                    return people.fname
-                  }
-                })
-                return name
-              }
-             }
-          });
 
+          const friendsArray = randomPerson.friends.map((friendId) => {
+              const friend = people.find((person) => person.id === friendId)
+              return friend.fname + ' ' + friend.lname; 
+          })
+          
+
+          
+          if (friendsArray.length <= 0){
+            friendsDiv.textContent = `${randomPerson.fname} ${randomPerson.lname} was born in ${year} and has no friends.`
+          } else {
+            friendsDiv.textContent = `${randomPerson.fname} ${randomPerson.lname} was born in ${year} and is friends with ${friendsArray.join(', ')}.`
+          }
+        
+        
+       
         
         console.log(people, randomPerson, friendsArray)
-          friendsDiv.textContent = ` ${randomPerson.fname} ${randomPerson.lname} was born in ${year} and is friends with ${friendsArray}`
+         
+          
 
 
 
   // 👉 TASK 6 - Make it so user can tab through the widgets
-        qotdWidget.setAttribute('tabindex', '0');
-        corpSpeakWidget.setAttribute('tabindex', '0');
-        countdownWidget.setAttribute('tabindex', '0');
-        friendsWidget.setAttribute('tabindex', '0');
+        qotdWidget.setAttribute('tabindex', '1');
+        corpSpeakWidget.setAttribute('tabindex', '2');
+        countdownWidget.setAttribute('tabindex', '3');
+        friendsWidget.setAttribute('tabindex', '4');
 
 
 
