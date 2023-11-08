@@ -24,12 +24,12 @@ function moduleProject1() {
         const authorDiv = document.createElement('div');
         document.querySelector('.quoteoftheday').appendChild(qotdDiv);
         document.querySelector('.quoteoftheday').appendChild(authorDiv);
-        qotdDiv.innerText = randomQuote['quote'];
+        qotdDiv.textContent = randomQuote['quote'];
         if (randomQuote.date === null){
-          authorDiv.innerText = `${randomQuote['author']} in an unknown date`;
+          authorDiv.textContent = `${randomQuote['author']} in an unknown date`;
         }
         else {
-        authorDiv.innerText = `${randomQuote['author']} in ${randomQuote['date']}`;
+        authorDiv.textContent = `${randomQuote['author']} in ${randomQuote['date']}`;
         }
         
   // 👉 TASK 3 - Build a "Corporate Speak" widget
@@ -45,29 +45,32 @@ function moduleProject1() {
           //noun 
           const randomNumberNoun = Math.floor(Math.random() * nouns.length)
           const randomNoun = nouns[randomNumberNoun]
-          corpSpeakDiv.innerText = `We need to ${randomVerb} our ${randomNoun} ${randomAdverb} in order to ${randomVerb} our ${randomNoun} ${randomAdverb}.`; 
+          corpSpeakDiv.textContent = `We need to ${randomVerb} our ${randomNoun} ${randomAdverb} in order to ${randomVerb} our ${randomNoun} ${randomAdverb}.`; 
 
   // 👉 TASK 4 - Build a "Countdown" widget
           const countdownDiv = document.createElement('p')
           document.querySelector('.countdown').appendChild(countdownDiv)
           let counter = 4;
-          countdownDiv.innerText = 'T-minus 5...';
-          setInterval(count, 1000);
+          countdownDiv.textContent = 'T-minus 5...';
           function count() {
-            countdownDiv.innerText = `T-minus ${counter}...`;
+            countdownDiv.textContent = `T-minus ${counter}...`;
             counter--
             if (counter < 0){
-              countdownDiv.innerText = 'Liftoff! 🚀';
+              countdownDiv.textContent = 'Liftoff! 🚀';
             }
           }
-
+          setInterval(count, 1000);
+           
   // 👉 TASK 5 - Build a "Friends" widget
           const friendsDiv = document.createElement('p')
           document.querySelector('.friends').appendChild(friendsDiv)
           const randomPersonGenny = Math.floor(Math.random() * people.length);
           const randomPerson = people[randomPersonGenny];
-          console.log(people)
-          friendsDiv.innerText = ` ${randomPerson.fname} ${randomPerson.lName} was born in ${randomPerson.dateOfBirth} and is friends with `
+          const i = 0; 
+          const friends = people[i].friends
+          
+          console.log(people, friends)
+          friendsDiv.textContent = ` ${randomPerson.fname} ${randomPerson.lName} was born in ${randomPerson.dateOfBirth} and is friends with ${friends}`
 
 
 
