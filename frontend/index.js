@@ -72,23 +72,17 @@ function moduleProject1() {
               const friend = people.find((person) => person.id === friendId)
               return friend.fname + ' ' + friend.lname; 
           })
-          
-
-          
+                    
           if (friendsArray.length <= 0){
-            friendsDiv.textContent = `${randomPerson.fname} ${randomPerson.lname} was born in ${year} and has no friends.`
+            friendsDiv.textContent = `${randomPerson.fname} ${randomPerson.lname} was born in ${year} and has no friends.`;
+          } 
+          else if (friendsArray.length === 1){
+            friendsDiv.textContent = `${randomPerson.fname} ${randomPerson.lname} was born in ${year} and is friends with ${friendsArray[0]}.`;
           } else {
-            friendsDiv.textContent = `${randomPerson.fname} ${randomPerson.lname} was born in ${year} and is friends with ${friendsArray.join(', ')}.`
-          }
-        
-        
-       
-        
-        console.log(people, randomPerson, friendsArray)
-         
-          
-
-
+            const last = friendsArray.pop();
+            const result = friendsArray.join(', ') + ' and ' + last;
+            friendsDiv.textContent = `${randomPerson.fname} ${randomPerson.lname} was born in ${year} and is friends with ${result}.`;
+          };
 
   // 👉 TASK 6 - Make it so user can tab through the widgets
         qotdWidget.setAttribute('tabindex', '1');
